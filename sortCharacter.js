@@ -28,7 +28,20 @@ const sort = (inputan) => {
             }
         }
         if (huruf != " ") {
-            consonant.push(huruf.toLowerCase());
+            let flag = false;
+            let index = 0;
+            for (let i = 0; i < consonant.length; i++) {
+                if (consonant.at(i) == huruf) {
+                    index = i + 1;
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag) {
+                consonant.splice(index, 0, huruf.toLowerCase());
+            } else {
+                consonant.push(huruf.toLowerCase());
+            }
         }
     }
 
